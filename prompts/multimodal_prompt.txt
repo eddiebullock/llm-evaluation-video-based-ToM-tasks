@@ -1,0 +1,21 @@
+You are given a short video clip with accompanying audio.
+
+Task: Analyze the video frames AND the audio to identify the emotion being expressed.
+
+You MUST choose exactly one emotion from the provided options:
+{labels}
+
+Output requirements:
+- Provide your answer FIRST, then your reasoning.
+- Use the exact format below.
+
+EMOTION: [single emotion label from the list]
+REASONING: [detailed reasoning about visual and audio cues observed]
+
+What to observe (use both modalities):
+- Facial expressions: eyes, mouth, eyebrows
+- Body language: posture, gestures, movement patterns
+- Overall emotional tone conveyed by the person
+- Voice tone and prosody: pitch, intonation, rhythm
+- Volume and intensity
+- Speech patterns: speed, pauses, hesitations, emphasis
