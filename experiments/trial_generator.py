@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import json
 import logging
 import random
@@ -128,6 +129,42 @@ class TrialGenerator:
 
         return trials
 
+    def generate_trials_from_data_dir(self) -> List[Dict[str, Any]]:
+        """
+        Generate one 4-AFC trial per video under data_dir/<mental_state>/*.
+
+        Paths in the output JSON are stored relative to the parent of data_dir,
+        so that a dataset directory such as 'data/eu_emotion/' yields paths like:
+        'eu_emotion/happy/clip_001.mp4'. This matches the evaluation runner's
+        '--data_dir data/' usage.
+        """
+
+        inventory = self._ensure_inventory()
+        base_root = self.data_dir.resolve().parent
+
+        items: List[StimulusItem] = []
+        for label, videos in inventory.items():
+            for vp in sorted(videos):
+                vpath = Path(vp).resolve()
+                try:
+                    video_rel = vpath.relative_to(base_root).as_posix()
+                except Exception:
+                    video_rel = str(vpath)
+
+                audio_rel: Optional[str] = None
+                for ext in sorted(AUDIO_EXTS):
+                    ap = vpath.with_suffix(ext)
+                    if ap.exists():
+                        try:
+                            audio_rel = ap.relative_to(base_root).as_posix()
+                        except Exception:
+                            audio_rel = str(ap)
+                        break
+
+                items.append(StimulusItem(correct_label=label, video_path=video_rel, audio_path=audio_rel))
+
+        return self.generate_trials(items)
+
     def save_trials(self, trials: Sequence[Dict[str, Any]], output_path: str) -> None:
         out = Path(output_path)
         out.parent.mkdir(parents=True, exist_ok=True)
@@ -143,18 +180,24 @@ class TrialGenerator:
         return data
 
 
+def build_arg_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="Generate 4-AFC trial JSON files with stratified foil sampling.")
+    parser.add_argument("--dataset", required=True, choices=["eu_emotion", "mindreading"], help="Dataset name.")
+    parser.add_argument("--data_dir", required=True, help="Path to dataset directory containing label subfolders.")
+    parser.add_argument("--output_path", required=True, help="Path to write the trials JSON.")
+    parser.add_argument("--seed", type=int, default=42, help="Random seed (default: 42).")
+    return parser
+
+
+def main() -> None:
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
+    args = build_arg_parser().parse_args()
+
+    gen = TrialGenerator(dataset_name=args.dataset, data_dir=args.data_dir, random_seed=args.seed)
+    trials = gen.generate_trials_from_data_dir()
+    gen.save_trials(trials, args.output_path)
+    print(f"Saved {len(trials)} trials to {args.output_path}")
+
+
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
-
-    gen = TrialGenerator(dataset_name="eu_emotion", data_dir="data", random_seed=42)
-    dummy_items = [
-        StimulusItem(correct_label="happy", video_path="data/happy/clip_001.mp4", audio_path="data/happy/clip_001.wav"),
-        StimulusItem(correct_label="sad", video_path="data/sad/clip_002.mp4", audio_path="data/sad/clip_002.wav"),
-    ]
-
-    try:
-        trials = gen.generate_trials(dummy_items)
-        print("Generated trials:", len(trials))
-        print(json.dumps(trials[0], indent=2))
-    except Exception as e:
-        print("Demo failed (expected if data_dir is not populated):", str(e))
+    main()
