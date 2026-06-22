@@ -1,0 +1,11 @@
+{
+  "model": "gemini-3-flash",
+  "dataset": "eu_emotion",
+  "condition": "multimodal",
+  "seed": 42,
+  "n_total": 118,
+  "n_valid": 118,
+  "n_unparseable": 0,
+  "accuracy": 0.8135593220338984,
+  "accuracy_percent": 81.35593220338984
+}

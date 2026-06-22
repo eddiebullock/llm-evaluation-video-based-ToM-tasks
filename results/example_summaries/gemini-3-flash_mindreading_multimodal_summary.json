@@ -1,0 +1,11 @@
+{
+  "model": "gemini-3-flash",
+  "dataset": "mindreading",
+  "condition": "multimodal",
+  "seed": 42,
+  "n_total": 1263,
+  "n_valid": 1240,
+  "n_unparseable": 23,
+  "accuracy": 0.853225806451613,
+  "accuracy_percent": 85.3225806451613
+}

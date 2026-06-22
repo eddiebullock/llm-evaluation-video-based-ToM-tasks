@@ -10,5 +10,20 @@ __pycache__/
 venv/
 .env
 .env.*
+.deps/
+
+# API cache and large run artifacts
 cache/
-results/
+
+# Per-trial CSVs and logs; keep example summary JSONs only
+results/**
+!results/example_summaries/
+!results/example_summaries/*_summary.json
+
+# Stimuli (licensed; not distributed)
+data/videos/
+data/audio/
+*.mp4
+*.mov
+*.wav
+*.mp3

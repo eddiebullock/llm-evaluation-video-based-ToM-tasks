@@ -1,0 +1,11 @@
+{
+  "model": "gpt-5",
+  "dataset": "mindreading",
+  "condition": "video_only",
+  "seed": 42,
+  "n_total": 1263,
+  "n_valid": 581,
+  "n_unparseable": 682,
+  "accuracy": 0.6540447504302926,
+  "accuracy_percent": 65.40447504302927
+}

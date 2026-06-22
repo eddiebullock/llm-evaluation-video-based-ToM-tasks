@@ -1,0 +1,17 @@
+model,dataset,category,n_correct,n_total,accuracy,accuracy_percent
+claude-opus-4-5,eu_emotion,basic,39,49,0.7959183673469388,79.59183673469387
+claude-opus-4-5,eu_emotion,complex,39,61,0.639344262295082,63.934426229508205
+claude-opus-4-5,mindreading,basic,7,8,0.875,87.5
+claude-opus-4-5,mindreading,complex,327,575,0.568695652173913,56.869565217391305
+gemini-3-flash,eu_emotion,basic,36,49,0.7346938775510204,73.46938775510205
+gemini-3-flash,eu_emotion,complex,44,61,0.7213114754098361,72.1311475409836
+gemini-3-flash,mindreading,basic,7,8,0.875,87.5
+gemini-3-flash,mindreading,complex,373,575,0.648695652173913,64.8695652173913
+gpt-5,eu_emotion,basic,42,49,0.8571428571428571,85.71428571428571
+gpt-5,eu_emotion,complex,37,61,0.6065573770491803,60.65573770491803
+gpt-5,mindreading,basic,8,8,1.0,100.0
+gpt-5,mindreading,complex,372,573,0.6492146596858639,64.92146596858639
+gpt-5-mini,eu_emotion,basic,37,49,0.7551020408163265,75.51020408163265
+gpt-5-mini,eu_emotion,complex,35,61,0.5737704918032787,57.377049180327866
+gpt-5-mini,mindreading,basic,8,8,1.0,100.0
+gpt-5-mini,mindreading,complex,358,575,0.6226086956521739,62.26086956521739

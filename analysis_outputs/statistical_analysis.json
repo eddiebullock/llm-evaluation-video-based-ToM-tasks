@@ -1,0 +1,649 @@
+{
+  "benchmarks": {
+    "chance": 0.25,
+    "human_benchmarks": {
+      "eu_emotion": {
+        "video_only": {
+          "citation": "O'Reilly et al. (2016); facial expression",
+          "accuracy": 0.63,
+          "n": 1231
+        },
+        "audio_only": {
+          "citation": "Lassalle et al. (2019); UK vocal expression",
+          "accuracy": 0.4519,
+          "n": 427
+        },
+        "multimodal": {
+          "citation": null,
+          "accuracy": null,
+          "n": null
+        }
+      },
+      "mindreading": {}
+    }
+  },
+  "per_model_dataset": {
+    "claude-opus-4-5": {
+      "eu_emotion": {
+        "video_only": {
+          "n_correct": 85,
+          "n_total": 118,
+          "accuracy": 0.7203389830508474,
+          "wilson_ci_95": [
+            0.6333941439231597,
+            0.7933899778635377
+          ]
+        }
+      },
+      "mindreading": {
+        "video_only": {
+          "n_correct": 334,
+          "n_total": 581,
+          "accuracy": 0.5748709122203098,
+          "wilson_ci_95": [
+            0.5343102424685022,
+            0.6144480213102517
+          ]
+        }
+      }
+    },
+    "gemini-3-flash": {
+      "eu_emotion": {
+        "audio_only": {
+          "n_correct": 69,
+          "n_total": 118,
+          "accuracy": 0.5847457627118644,
+          "wilson_ci_95": [
+            0.49453649386124565,
+            0.6696112452874842
+          ]
+        },
+        "multimodal": {
+          "n_correct": 96,
+          "n_total": 118,
+          "accuracy": 0.8135593220338984,
+          "wilson_ci_95": [
+            0.7338165429504817,
+            0.8735300918998186
+          ]
+        },
+        "video_only": {
+          "n_correct": 88,
+          "n_total": 118,
+          "accuracy": 0.7457627118644068,
+          "wilson_ci_95": [
+            0.6603107217485353,
+            0.8157177217827811
+          ]
+        }
+      },
+      "mindreading": {
+        "audio_only": {
+          "n_correct": 970,
+          "n_total": 1263,
+          "accuracy": 0.768012668250198,
+          "wilson_ci_95": [
+            0.7439421725979796,
+            0.7904577677309557
+          ]
+        },
+        "multimodal": {
+          "n_correct": 1058,
+          "n_total": 1240,
+          "accuracy": 0.853225806451613,
+          "wilson_ci_95": [
+            0.8324383877688599,
+            0.8718314319801534
+          ]
+        },
+        "video_only": {
+          "n_correct": 380,
+          "n_total": 581,
+          "accuracy": 0.6540447504302926,
+          "wilson_ci_95": [
+            0.6144680238204283,
+            0.6915978292416054
+          ]
+        }
+      }
+    },
+    "gpt-5": {
+      "eu_emotion": {
+        "video_only": {
+          "n_correct": 87,
+          "n_total": 118,
+          "accuracy": 0.7372881355932204,
+          "wilson_ci_95": [
+            0.6513031361566628,
+            0.8083105334597807
+          ]
+        }
+      },
+      "mindreading": {
+        "video_only": {
+          "n_correct": 380,
+          "n_total": 581,
+          "accuracy": 0.6540447504302926,
+          "wilson_ci_95": [
+            0.6144680238204283,
+            0.6915978292416054
+          ]
+        }
+      }
+    },
+    "gpt-5-mini": {
+      "eu_emotion": {
+        "video_only": {
+          "n_correct": 80,
+          "n_total": 118,
+          "accuracy": 0.6779661016949152,
+          "wilson_ci_95": [
+            0.5891986209460398,
+            0.7555116312662926
+          ]
+        }
+      },
+      "mindreading": {
+        "video_only": {
+          "n_correct": 365,
+          "n_total": 581,
+          "accuracy": 0.6282271944922547,
+          "wilson_ci_95": [
+            0.5882083648779648,
+            0.6665615351569123
+          ]
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "vs_chance": {
+      "claude-opus-4-5": {
+        "eu_emotion": {
+          "video_only": {
+            "p_value": 1.1044754224566578e-26
+          }
+        },
+        "mindreading": {
+          "video_only": {
+            "p_value": 5.724274652969444e-62
+          }
+        }
+      },
+      "gemini-3-flash": {
+        "eu_emotion": {
+          "audio_only": {
+            "p_value": 1.2681814590454749e-14
+          },
+          "multimodal": {
+            "p_value": 1.2915142749852909e-37
+          },
+          "video_only": {
+            "p_value": 1.998581328691961e-29
+          }
+        },
+        "mindreading": {
+          "audio_only": {
+            "p_value": 0.0
+          },
+          "multimodal": {
+            "p_value": 0.0
+          },
+          "video_only": {
+            "p_value": 2.8563894660302586e-93
+          }
+        }
+      },
+      "gpt-5": {
+        "eu_emotion": {
+          "video_only": {
+            "p_value": 1.711688932966761e-28
+          }
+        },
+        "mindreading": {
+          "video_only": {
+            "p_value": 2.8563894660302586e-93
+          }
+        }
+      },
+      "gpt-5-mini": {
+        "eu_emotion": {
+          "video_only": {
+            "p_value": 1.812343872276869e-22
+          }
+        },
+        "mindreading": {
+          "video_only": {
+            "p_value": 2.5010782178830942e-82
+          }
+        }
+      }
+    },
+    "vs_human_benchmark": {
+      "claude-opus-4-5": {
+        "eu_emotion": {
+          "video_only": {
+            "benchmark": {
+              "citation": "O'Reilly et al. (2016); facial expression",
+              "accuracy": 0.63,
+              "n": 1231
+            },
+            "z": 1.9505147847169346,
+            "p_value_raw": 0.05111479294384266,
+            "cohen_h": 0.1933315855114266,
+            "power_alpha_0_01": 0.13770022769161455
+          }
+        },
+        "mindreading": {
+          "video_only": null
+        }
+      },
+      "gemini-3-flash": {
+        "eu_emotion": {
+          "audio_only": {
+            "benchmark": {
+              "citation": "Lassalle et al. (2019); UK vocal expression",
+              "accuracy": 0.4519,
+              "n": 427
+            },
+            "z": 2.556580193308319,
+            "p_value_raw": 0.010570670272912202,
+            "cohen_h": 0.2666627077169099,
+            "power_alpha_0_01": 0.29890628226654825
+          },
+          "multimodal": null,
+          "video_only": {
+            "benchmark": {
+              "citation": "O'Reilly et al. (2016); facial expression",
+              "accuracy": 0.63,
+              "n": 1231
+            },
+            "z": 2.502792144676179,
+            "p_value_raw": 0.012321788512473479,
+            "cohen_h": 0.25081830853982323,
+            "power_alpha_0_01": 0.2580893934871185
+          }
+        },
+        "mindreading": {
+          "audio_only": null,
+          "multimodal": null,
+          "video_only": null
+        }
+      },
+      "gpt-5": {
+        "eu_emotion": {
+          "video_only": {
+            "benchmark": {
+              "citation": "O'Reilly et al. (2016); facial expression",
+              "accuracy": 0.63,
+              "n": 1231
+            },
+            "z": 2.3185291854380345,
+            "p_value_raw": 0.020420578690823633,
+            "cohen_h": 0.23146037356236038,
+            "power_alpha_0_01": 0.21245689856586192
+          }
+        },
+        "mindreading": {
+          "video_only": null
+        }
+      },
+      "gpt-5-mini": {
+        "eu_emotion": {
+          "video_only": {
+            "benchmark": {
+              "citation": "O'Reilly et al. (2016); facial expression",
+              "accuracy": 0.63,
+              "n": 1231
+            },
+            "z": 1.0333856575063585,
+            "p_value_raw": 0.30142345571492435,
+            "cohen_h": 0.10088920494571996,
+            "power_alpha_0_01": 0.03626346434494846
+          }
+        },
+        "mindreading": {
+          "video_only": null
+        }
+      }
+    },
+    "pairwise_models_fisher": {
+      "eu_emotion:video_only": [
+        {
+          "dataset": "eu_emotion",
+          "condition": "video_only",
+          "model_a": "claude-opus-4-5",
+          "model_b": "gemini-3-flash",
+          "odds_ratio": 0.878099173553719,
+          "p_value_raw": 0.7686864216094208,
+          "cohen_h": -0.057486723028396636,
+          "n_a": 118,
+          "n_b": 118,
+          "correct_a": 85,
+          "correct_b": 88,
+          "p_value_bonferroni": 1.0,
+          "alpha_threshold": 0.0008333333333333334
+        },
+        {
+          "dataset": "eu_emotion",
+          "condition": "video_only",
+          "model_a": "claude-opus-4-5",
+          "model_b": "gpt-5",
+          "odds_ratio": 0.9177986764193661,
+          "p_value_raw": 0.8836746744509809,
+          "cohen_h": -0.03812878805093378,
+          "n_a": 118,
+          "n_b": 118,
+          "correct_a": 85,
+          "correct_b": 87,
+          "p_value_bonferroni": 1.0,
+          "alpha_threshold": 0.0008333333333333334
+        },
+        {
+          "dataset": "eu_emotion",
+          "condition": "video_only",
+          "model_a": "claude-opus-4-5",
+          "model_b": "gpt-5-mini",
+          "odds_ratio": 1.2234848484848484,
+          "p_value_raw": 0.5703856781232413,
+          "cohen_h": 0.09244238056570664,
+          "n_a": 118,
+          "n_b": 118,
+          "correct_a": 85,
+          "correct_b": 80,
+          "p_value_bonferroni": 1.0,
+          "alpha_threshold": 0.0008333333333333334
+        },
+        {
+          "dataset": "eu_emotion",
+          "condition": "video_only",
+          "model_a": "gemini-3-flash",
+          "model_b": "gpt-5",
+          "odds_ratio": 1.0452107279693486,
+          "p_value_raw": 1.0,
+          "cohen_h": 0.019357934977462854,
+          "n_a": 118,
+          "n_b": 118,
+          "correct_a": 88,
+          "correct_b": 87,
+          "p_value_bonferroni": 1.0,
+          "alpha_threshold": 0.0008333333333333334
+        },
+        {
+          "dataset": "eu_emotion",
+          "condition": "video_only",
+          "model_a": "gemini-3-flash",
+          "model_b": "gpt-5-mini",
+          "odds_ratio": 1.3933333333333333,
+          "p_value_raw": 0.3143700363054085,
+          "cohen_h": 0.14992910359410327,
+          "n_a": 118,
+          "n_b": 118,
+          "correct_a": 88,
+          "correct_b": 80,
+          "p_value_bonferroni": 1.0,
+          "alpha_threshold": 0.0008333333333333334
+        },
+        {
+          "dataset": "eu_emotion",
+          "condition": "video_only",
+          "model_a": "gpt-5",
+          "model_b": "gpt-5-mini",
+          "odds_ratio": 1.3330645161290322,
+          "p_value_raw": 0.390615681030173,
+          "cohen_h": 0.13057116861664042,
+          "n_a": 118,
+          "n_b": 118,
+          "correct_a": 87,
+          "correct_b": 80,
+          "p_value_bonferroni": 1.0,
+          "alpha_threshold": 0.0008333333333333334
+        }
+      ],
+      "mindreading:video_only": [
+        {
+          "dataset": "mindreading",
+          "condition": "video_only",
+          "model_a": "claude-opus-4-5",
+          "model_b": "gemini-3-flash",
+          "odds_ratio": 0.7152567653952695,
+          "p_value_raw": 0.006652648383135613,
+          "cohen_h": -0.1628770473101746,
+          "n_a": 581,
+          "n_b": 581,
+          "correct_a": 334,
+          "correct_b": 380,
+          "p_value_bonferroni": 0.03991589029881368,
+          "alpha_threshold": 0.0008333333333333334
+        },
+        {
+          "dataset": "mindreading",
+          "condition": "video_only",
+          "model_a": "claude-opus-4-5",
+          "model_b": "gpt-5",
+          "odds_ratio": 0.7152567653952695,
+          "p_value_raw": 0.006652648383135613,
+          "cohen_h": -0.1628770473101746,
+          "n_a": 581,
+          "n_b": 581,
+          "correct_a": 334,
+          "correct_b": 380,
+          "p_value_bonferroni": 0.03991589029881368,
+          "alpha_threshold": 0.0008333333333333334
+        },
+        {
+          "dataset": "mindreading",
+          "condition": "video_only",
+          "model_a": "claude-opus-4-5",
+          "model_b": "gpt-5-mini",
+          "odds_ratio": 0.8002218401641618,
+          "p_value_raw": 0.07218561156240957,
+          "cohen_h": -0.10904496763354588,
+          "n_a": 581,
+          "n_b": 581,
+          "correct_a": 334,
+          "correct_b": 365,
+          "p_value_bonferroni": 0.43311366937445744,
+          "alpha_threshold": 0.0008333333333333334
+        },
+        {
+          "dataset": "mindreading",
+          "condition": "video_only",
+          "model_a": "gemini-3-flash",
+          "model_b": "gpt-5",
+          "odds_ratio": 1.0,
+          "p_value_raw": 1.0,
+          "cohen_h": 0.0,
+          "n_a": 581,
+          "n_b": 581,
+          "correct_a": 380,
+          "correct_b": 380,
+          "p_value_bonferroni": 1.0,
+          "alpha_threshold": 0.0008333333333333334
+        },
+        {
+          "dataset": "mindreading",
+          "condition": "video_only",
+          "model_a": "gemini-3-flash",
+          "model_b": "gpt-5-mini",
+          "odds_ratio": 1.1187896135759559,
+          "p_value_raw": 0.39188907405132734,
+          "cohen_h": 0.05383207967662873,
+          "n_a": 581,
+          "n_b": 581,
+          "correct_a": 380,
+          "correct_b": 365,
+          "p_value_bonferroni": 1.0,
+          "alpha_threshold": 0.0008333333333333334
+        },
+        {
+          "dataset": "mindreading",
+          "condition": "video_only",
+          "model_a": "gpt-5",
+          "model_b": "gpt-5-mini",
+          "odds_ratio": 1.1187896135759559,
+          "p_value_raw": 0.39188907405132734,
+          "cohen_h": 0.05383207967662873,
+          "n_a": 581,
+          "n_b": 581,
+          "correct_a": 380,
+          "correct_b": 365,
+          "p_value_bonferroni": 1.0,
+          "alpha_threshold": 0.0008333333333333334
+        }
+      ]
+    },
+    "cross_dataset_video_only": [
+      {
+        "model": "claude-opus-4-5",
+        "eu_accuracy": 0.7203389830508474,
+        "mindreading_accuracy": 0.5748709122203098,
+        "difference": -0.1454680708305376,
+        "z": 2.94001340044382,
+        "p_value_raw": 0.0032819805243932843,
+        "cohen_h": 0.30604664045859353,
+        "n_eu": 118,
+        "n_mr": 581,
+        "p_value_bonferroni": 0.013127922097573137,
+        "alpha_threshold": 0.0025
+      },
+      {
+        "model": "gemini-3-flash",
+        "eu_accuracy": 0.7457627118644068,
+        "mindreading_accuracy": 0.6540447504302926,
+        "difference": -0.09171796143411415,
+        "z": 1.9310482908607742,
+        "p_value_raw": 0.05347708076332817,
+        "cohen_h": 0.20065631617681556,
+        "n_eu": 118,
+        "n_mr": 581,
+        "p_value_bonferroni": 0.21390832305331267,
+        "alpha_threshold": 0.0025
+      },
+      {
+        "model": "gpt-5",
+        "eu_accuracy": 0.7372881355932204,
+        "mindreading_accuracy": 0.6540447504302926,
+        "difference": -0.08324338516292773,
+        "z": 1.7507130048964876,
+        "p_value_raw": 0.07999535816187997,
+        "cohen_h": 0.1812983811993527,
+        "n_eu": 118,
+        "n_mr": 581,
+        "p_value_bonferroni": 0.3199814326475199,
+        "alpha_threshold": 0.0025
+      },
+      {
+        "model": "gpt-5-mini",
+        "eu_accuracy": 0.6779661016949152,
+        "mindreading_accuracy": 0.6282271944922547,
+        "difference": -0.0497389072026605,
+        "z": 1.0241581685288108,
+        "p_value_raw": 0.3057605733640434,
+        "cohen_h": 0.10455929225934102,
+        "n_eu": 118,
+        "n_mr": 581,
+        "p_value_bonferroni": 1.0,
+        "alpha_threshold": 0.0025
+      }
+    ],
+    "modality_ablations_gemini_flash": [
+      {
+        "dataset": "eu_emotion",
+        "condition_a": "audio_only",
+        "condition_b": "multimodal",
+        "accuracy_a": 0.5847457627118644,
+        "accuracy_b": 0.8135593220338984,
+        "n_a": 118,
+        "n_b": 118,
+        "z": -3.83220399404633,
+        "p_value_raw": 0.0001270003615642552,
+        "cohen_h": -0.5075348211292638,
+        "p_value_bonferroni": 0.0007620021693855312,
+        "alpha_threshold": 0.0008333333333333334
+      },
+      {
+        "dataset": "eu_emotion",
+        "condition_a": "audio_only",
+        "condition_b": "video_only",
+        "accuracy_a": 0.5847457627118644,
+        "accuracy_b": 0.7457627118644068,
+        "n_a": 118,
+        "n_b": 118,
+        "z": -2.6208745316190547,
+        "p_value_raw": 0.008770453368677078,
+        "cohen_h": -0.3435268046044264,
+        "p_value_bonferroni": 0.05262272021206246,
+        "alpha_threshold": 0.0008333333333333334
+      },
+      {
+        "dataset": "eu_emotion",
+        "condition_a": "multimodal",
+        "condition_b": "video_only",
+        "accuracy_a": 0.8135593220338984,
+        "accuracy_b": 0.7457627118644068,
+        "n_a": 118,
+        "n_b": 118,
+        "z": 1.2564216321465316,
+        "p_value_raw": 0.20896314269936456,
+        "cohen_h": 0.16400801652483743,
+        "p_value_bonferroni": 1.0,
+        "alpha_threshold": 0.0008333333333333334
+      },
+      {
+        "dataset": "mindreading",
+        "condition_a": "audio_only",
+        "condition_b": "multimodal",
+        "accuracy_a": 0.768012668250198,
+        "accuracy_b": 0.853225806451613,
+        "n_a": 1263,
+        "n_b": 1240,
+        "z": -5.4358657473294345,
+        "p_value_raw": 5.4531003309123924e-08,
+        "cohen_h": -0.21875020163921377,
+        "p_value_bonferroni": 3.2718601985474356e-07,
+        "alpha_threshold": 0.0008333333333333334
+      },
+      {
+        "dataset": "mindreading",
+        "condition_a": "audio_only",
+        "condition_b": "video_only",
+        "accuracy_a": 0.768012668250198,
+        "accuracy_b": 0.6540447504302926,
+        "n_a": 1263,
+        "n_b": 581,
+        "z": 5.133605067216185,
+        "p_value_raw": 2.8424423177568927e-07,
+        "cohen_h": 0.2525376473307748,
+        "p_value_bonferroni": 1.7054653906541356e-06,
+        "alpha_threshold": 0.0008333333333333334
+      },
+      {
+        "dataset": "mindreading",
+        "condition_a": "multimodal",
+        "condition_b": "video_only",
+        "accuracy_a": 0.853225806451613,
+        "accuracy_b": 0.6540447504302926,
+        "n_a": 1240,
+        "n_b": 581,
+        "z": 9.721271719075073,
+        "p_value_raw": 2.447059242607178e-22,
+        "cohen_h": 0.47128784896998854,
+        "p_value_bonferroni": 1.4682355455643068e-21,
+        "alpha_threshold": 0.0008333333333333334
+      }
+    ]
+  },
+  "analysis_metadata": {
+    "mr_video_only_fair_subset": {
+      "n_trials": 581,
+      "models": [
+        "gemini-3-flash",
+        "gpt-5",
+        "gpt-5-mini",
+        "claude-opus-4-5"
+      ],
+      "note": "Mindreading video_only cross-model comparisons use the intersection of trials where each model received a video stimulus (n=581). T-marker audio-only trials without video input are excluded."
+    }
+  }
+}
